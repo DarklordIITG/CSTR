@@ -1,0 +1,167 @@
+.node-weight {
+  background-color: #fff3cd;
+  color: #856404;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffeaa7;
+  animation: weight-animation 0.3s ease-in-out;
+}
+
+@keyframes weight-animation {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}/* Node/Node.css */
+.node {
+  width: 25px;
+  height: 25px;
+  outline: 1px solid rgb(175, 216, 248);
+  display: inline-block;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+  position: relative;
+  user-select: none;
+}
+
+.node:hover {
+  background-color: #f0f8ff;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.node:active {
+  transform: scale(0.95);
+}
+
+.node-finish {
+  background-color: #ff6b6b;
+  animation: pulse-finish 1.5s infinite;
+}
+
+.node-start {
+  background-color: #4ecdc4;
+  animation: pulse-start 1.5s infinite;
+}
+
+.node-wall {
+  background-color: #2c3e50;
+  animation: wall-animation 0.3s ease-in-out;
+}
+
+.node-visited {
+  background-color: #9b59b6;
+  animation: visited-animation 1.5s ease-out;
+}
+
+.node-shortest-path {
+  background-color: #f1c40f;
+  animation: shortest-path-animation 1.5s ease-out;
+}
+
+/* Animations */
+@keyframes pulse-start {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(78, 205, 196, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(78, 205, 196, 0);
+  }
+}
+
+@keyframes pulse-finish {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+  }
+}
+
+@keyframes wall-animation {
+  0% {
+    transform: scale(0.3);
+    background-color: #34495e;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #2c3e50;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #2c3e50;
+  }
+}
+
+@keyframes visited-animation {
+  0% {
+    transform: scale(0.3);
+    background-color: #e74c3c;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: #3498db;
+  }
+  75% {
+    transform: scale(1.2);
+    background-color: #9b59b6;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #9b59b6;
+  }
+}
+
+@keyframes shortest-path-animation {
+  0% {
+    transform: scale(0.6);
+    background-color: #f39c12;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #f1c40f;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #f1c40f;
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .node {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .node {
+    width: 15px;
+    height: 15px;
+  }
+}

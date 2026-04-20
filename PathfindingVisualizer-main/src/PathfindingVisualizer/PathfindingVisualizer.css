@@ -1,0 +1,416 @@
+/* PathfindingVisualizer.css */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  gap: 1rem;
+}
+
+.nav-title h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Mode Selection Section */
+.mode-selection, .speed-selection, .weight-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mode-selection h3, .speed-selection h3, .weight-selection h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #e8f4fd;
+  font-weight: 500;
+}
+
+.mode-buttons, .speed-buttons, .weight-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mode-btn, .speed-btn, .weight-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  min-width: 80px;
+}
+
+.mode-btn:hover:not(:disabled), .speed-btn:hover:not(:disabled), .weight-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mode-btn.active, .speed-btn.active, .weight-btn.active {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-color: #4CAF50;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.mode-btn:disabled, .speed-btn:disabled, .weight-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Speed-specific styling */
+.speed-btn {
+  min-width: 95px;
+  font-size: 13px;
+}
+
+.speed-btn.active {
+  animation: pulse-speed 2s infinite;
+}
+
+/* Weight-specific styling */
+.weight-btn {
+  min-width: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.weight-btn:hover:not(:disabled) {
+  border-color: rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px) scale(1.1);
+}
+
+.weight-btn.active {
+  border-color: #4CAF50;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+  color: #2c5234;
+}
+
+/* Button Groups */
+.nav-buttons, .control-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.algorithm-btn {
+  background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);
+  box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+}
+
+.algorithm-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ee5a52 0%, #e74c3c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.4);
+}
+
+.control-btn {
+  background: linear-gradient(135deg, #9B59B6 0%, #8e44ad 100%);
+  box-shadow: 0 2px 4px rgba(155, 89, 182, 0.3);
+}
+
+.control-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(155, 89, 182, 0.4);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Instructions */
+.instructions {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.instructions p {
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid */
+.grid {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: fit-content;
+}
+
+.grid-row {
+  display: flex;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.legend-item .node {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .nav-title h1 {
+    font-size: 1.8rem;
+  }
+  
+  .mode-buttons, .speed-buttons, .weight-buttons, .nav-buttons, .control-buttons {
+    gap: 0.3rem;
+  }
+  
+  .btn, .mode-btn, .speed-btn, .weight-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 85px;
+  }
+
+  .weight-btn {
+    min-width: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .nav-title h1 {
+    font-size: 1.6rem;
+  }
+
+  .mode-selection h3, .speed-selection h3, .weight-selection h3 {
+    font-size: 1rem;
+  }
+
+  .mode-buttons, .speed-buttons {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .weight-buttons {
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+  }
+
+  .nav-buttons, .control-buttons {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .btn, .mode-btn, .speed-btn {
+    padding: 10px 8px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+
+  .weight-btn {
+    padding: 8px;
+    font-size: 14px;
+    min-width: 40px;
+  }
+
+  .instructions {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+
+  .legend {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .legend-item {
+    font-size: 13px;
+  }
+
+  .grid {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-title h1 {
+    font-size: 1.4rem;
+  }
+
+  .mode-buttons, .speed-buttons, .nav-buttons, .control-buttons {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .weight-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .btn, .mode-btn, .speed-btn {
+    padding: 12px 16px;
+    font-size: 14px;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .weight-btn {
+    padding: 10px;
+    font-size: 14px;
+    min-width: 35px;
+  }
+
+  .instructions {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .legend-item {
+    font-size: 12px;
+  }
+
+  .grid {
+    padding: 0 5px;
+  }
+}
+
+/* Special hover effects for interactive elements */
+.mode-btn:not(.active):not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Animation for mode transitions */
+.mode-btn {
+  animation: none;
+}
+
+.mode-btn.active {
+  animation: pulse-mode 2s infinite;
+}
+
+@keyframes pulse-mode {
+  0% {
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  }
+}
+
+@keyframes pulse-speed {
+  0% {
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(255, 193, 7, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  }
+}
+
+/* Loading state for when algorithms are running */
+.navbar.running {
+  opacity: 0.8;
+}
+
+.navbar.running .btn:disabled {
+  background: #999;
+}

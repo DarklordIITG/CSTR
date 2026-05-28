@@ -1,0 +1,13 @@
+# Generated data files
+*.mat
+
+# MATLAB auto-save
+*.asv
+*.m~
+
+# Figures (optional - remove these lines if you want PNGs in repo)
+# *.png
+
+# OS junk
+.DS_Store
+Thumbs.db
